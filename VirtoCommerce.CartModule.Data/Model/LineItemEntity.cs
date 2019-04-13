@@ -129,6 +129,9 @@ namespace VirtoCommerce.CartModule.Data.Model
         public virtual ObservableCollection<DiscountEntity> Discounts { get; set; } = new NullCollection<DiscountEntity>();
         public virtual ObservableCollection<ShipmentItemEntity> ShipmentItems { get; set; } = new NullCollection<ShipmentItemEntity>();
 
+        [StringLength(64)]
+        public string ProductOwner { get; set; }
+
         public virtual LineItem ToModel(LineItem lineItem)
         {
             if (lineItem == null)
@@ -213,6 +216,7 @@ namespace VirtoCommerce.CartModule.Data.Model
             target.RequiredShipping = RequiredShipping;
             target.ProductType = ProductType;
             target.FulfilmentLocationCode = FulfilmentLocationCode;
+            target.ProductOwner = ProductOwner;
 
             if (!Discounts.IsNullCollection())
             {

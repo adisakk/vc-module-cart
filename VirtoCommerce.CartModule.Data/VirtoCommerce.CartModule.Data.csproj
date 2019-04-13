@@ -74,7 +74,8 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="VirtoCommerce.Domain, Version=2.25.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\VirtoCommerce.Domain.2.25.2\lib\net461\VirtoCommerce.Domain.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\vc-module-core\VirtoCommerce.Domain\bin\Release\VirtoCommerce.Domain.dll</HintPath>
     </Reference>
     <Reference Include="VirtoCommerce.Platform.Core, Version=2.13.26.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\VirtoCommerce.Platform.Core.2.13.26\lib\net461\VirtoCommerce.Platform.Core.dll</HintPath>
@@ -127,6 +128,14 @@
     <Compile Include="Migrations\201809180910372_ManyCoupons.cs" />
     <Compile Include="Migrations\201809180910372_ManyCoupons.Designer.cs">
       <DependentUpon>201809180910372_ManyCoupons.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904071619593_AddProductOwner.cs" />
+    <Compile Include="Migrations\201904071619593_AddProductOwner.Designer.cs">
+      <DependentUpon>201904071619593_AddProductOwner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904071652246_ResizeProductOwner.cs" />
+    <Compile Include="Migrations\201904071652246_ResizeProductOwner.Designer.cs">
+      <DependentUpon>201904071652246_ResizeProductOwner.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\CouponEntity.cs" />
     <Compile Include="Services\DefaultShopingCartTotalsCalculator.cs" />
@@ -284,6 +293,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809180910372_ManyCoupons.resx">
       <DependentUpon>201809180910372_ManyCoupons.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904071619593_AddProductOwner.resx">
+      <DependentUpon>201904071619593_AddProductOwner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904071652246_ResizeProductOwner.resx">
+      <DependentUpon>201904071652246_ResizeProductOwner.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
