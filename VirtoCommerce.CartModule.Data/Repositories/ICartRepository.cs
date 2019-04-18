@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using VirtoCommerce.CartModule.Data.Model;
 using VirtoCommerce.Platform.Core.Common;
 
