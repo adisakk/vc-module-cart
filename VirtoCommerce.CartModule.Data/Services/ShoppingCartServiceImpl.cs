@@ -51,15 +51,19 @@ namespace VirtoCommerce.CartModule.Data.Services
                     
                     if (cartResponseGroup == CartResponseGroup.SeparateByProductOwner)
                     {
-                        //Separate cart by product owner name in customer order line items
+                        //Separate cart by product owner name in line items
                         var productOwners = cartEntity.Items.GroupBy(x => x.ProductOwner).OrderByDescending(group => group.Count()).Select(group => group.Key);
                         foreach (var productOwner in productOwners)
                         {
                             var cart = cartEntity.ToModel(AbstractTypeFactory<ShoppingCart>.TryCreateInstance());
                             cart.Items = cart.Items.Where(x => x.ProductOwner == productOwner).ToArray();
-
+                            
                             //Calculate totals
                             TotalsCalculator.CalculateTotals(cart);
+
+                            //Update payment amount
+                            cart.Payments.FirstOrDefault().Amount = cart.Total;
+
                             retVal.Add(cart);
                         }
                     }
@@ -72,7 +76,7 @@ namespace VirtoCommerce.CartModule.Data.Services
                         {
                             TotalsCalculator.CalculateTotals(cart);
                         }
-                        retVal.Add(cart);
+                        retVal.Add(cart);  
                     }
                 }
             }
