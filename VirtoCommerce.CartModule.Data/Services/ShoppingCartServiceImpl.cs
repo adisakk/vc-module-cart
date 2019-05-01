@@ -36,8 +36,6 @@ namespace VirtoCommerce.CartModule.Data.Services
         public virtual ShoppingCart[] GetByIds(string[] cartIds, string responseGroup = null)
         {
             var retVal = new List<ShoppingCart>();
-            var cartResponseGroup = EnumUtility.SafeParse(responseGroup, CartResponseGroup.Default);
-
 
             using (var repository = RepositoryFactory())
             {
@@ -45,39 +43,15 @@ namespace VirtoCommerce.CartModule.Data.Services
                 repository.DisableChangesTracking();
 
                 var cartEntities = repository.GetShoppingCartsByIds(cartIds);
-                
                 foreach (var cartEntity in cartEntities)
                 {
-                    
-                    if (cartResponseGroup == CartResponseGroup.SeparateByProductOwner)
+                    var cart = cartEntity.ToModel(AbstractTypeFactory<ShoppingCart>.TryCreateInstance());
+                    //Calculate totals only for full responseGroup
+                    if (responseGroup == null)
                     {
-                        //Separate cart by product owner name in line items
-                        var productOwners = cartEntity.Items.GroupBy(x => x.ProductOwner).OrderByDescending(group => group.Count()).Select(group => group.Key);
-                        foreach (var productOwner in productOwners)
-                        {
-                            var cart = cartEntity.ToModel(AbstractTypeFactory<ShoppingCart>.TryCreateInstance());
-                            cart.Items = cart.Items.Where(x => x.ProductOwner == productOwner).ToArray();
-                            
-                            //Calculate totals
-                            TotalsCalculator.CalculateTotals(cart);
-
-                            //Update payment amount
-                            cart.Payments.FirstOrDefault().Amount = cart.Total;
-
-                            retVal.Add(cart);
-                        }
+                        TotalsCalculator.CalculateTotals(cart);
                     }
-                    else
-                    {
-                        //Default
-                        var cart = cartEntity.ToModel(AbstractTypeFactory<ShoppingCart>.TryCreateInstance());
-                        //Calculate totals only for full responseGroup
-                        if (responseGroup == null)
-                        {
-                            TotalsCalculator.CalculateTotals(cart);
-                        }
-                        retVal.Add(cart);  
-                    }
+                    retVal.Add(cart);
                 }
             }
 
