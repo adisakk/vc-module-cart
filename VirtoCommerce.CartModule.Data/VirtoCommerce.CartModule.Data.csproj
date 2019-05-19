@@ -129,13 +129,9 @@
     <Compile Include="Migrations\201809180910372_ManyCoupons.Designer.cs">
       <DependentUpon>201809180910372_ManyCoupons.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201904071619593_AddProductOwner.cs" />
-    <Compile Include="Migrations\201904071619593_AddProductOwner.Designer.cs">
-      <DependentUpon>201904071619593_AddProductOwner.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201904071652246_ResizeProductOwner.cs" />
-    <Compile Include="Migrations\201904071652246_ResizeProductOwner.Designer.cs">
-      <DependentUpon>201904071652246_ResizeProductOwner.cs</DependentUpon>
+    <Compile Include="Migrations\201904071619593_AddLineItemProductOwner.cs" />
+    <Compile Include="Migrations\201904071619593_AddLineItemProductOwner.Designer.cs">
+      <DependentUpon>201904071619593_AddLineItemProductOwner.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\CouponEntity.cs" />
     <Compile Include="Services\DefaultShopingCartTotalsCalculator.cs" />
@@ -294,11 +290,8 @@
     <EmbeddedResource Include="Migrations\201809180910372_ManyCoupons.resx">
       <DependentUpon>201809180910372_ManyCoupons.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201904071619593_AddProductOwner.resx">
-      <DependentUpon>201904071619593_AddProductOwner.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201904071652246_ResizeProductOwner.resx">
-      <DependentUpon>201904071652246_ResizeProductOwner.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201904071619593_AddLineItemProductOwner.resx">
+      <DependentUpon>201904071619593_AddLineItemProductOwner.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

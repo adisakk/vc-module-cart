@@ -3,11 +3,11 @@ namespace VirtoCommerce.CartModule.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Initial1 : DbMigration
+    public partial class AddLineItemProductOwner : DbMigration
     {
         public override void Up()
         {
-            AddColumn("dbo.CartLineItem", "ProductOwner", c => c.String());
+            AddColumn("dbo.CartLineItem", "ProductOwner", c => c.String(maxLength: 64));
         }
         
         public override void Down()
