@@ -133,6 +133,10 @@
     <Compile Include="Migrations\201904071619593_AddLineItemProductOwner.Designer.cs">
       <DependentUpon>201904071619593_AddLineItemProductOwner.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905201727148_ResizeLineItemProductOwner.cs" />
+    <Compile Include="Migrations\201905201727148_ResizeLineItemProductOwner.Designer.cs">
+      <DependentUpon>201905201727148_ResizeLineItemProductOwner.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\CouponEntity.cs" />
     <Compile Include="Services\DefaultShopingCartTotalsCalculator.cs" />
     <Compile Include="Model\DiscountEntityComparer.cs" />
@@ -292,6 +296,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904071619593_AddLineItemProductOwner.resx">
       <DependentUpon>201904071619593_AddLineItemProductOwner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905201727148_ResizeLineItemProductOwner.resx">
+      <DependentUpon>201905201727148_ResizeLineItemProductOwner.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
