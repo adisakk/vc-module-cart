@@ -129,6 +129,10 @@
     <Compile Include="Migrations\201809180910372_ManyCoupons.Designer.cs">
       <DependentUpon>201809180910372_ManyCoupons.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201907221319198_SoftDeleteAndMissedColumns.cs" />
+    <Compile Include="Migrations\201907221319198_SoftDeleteAndMissedColumns.Designer.cs">
+      <DependentUpon>201907221319198_SoftDeleteAndMissedColumns.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\201904071619593_AddLineItemProductOwner.cs" />
     <Compile Include="Migrations\201904071619593_AddLineItemProductOwner.Designer.cs">
       <DependentUpon>201904071619593_AddLineItemProductOwner.cs</DependentUpon>
@@ -293,6 +297,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809180910372_ManyCoupons.resx">
       <DependentUpon>201809180910372_ManyCoupons.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907221319198_SoftDeleteAndMissedColumns.resx">
+      <DependentUpon>201907221319198_SoftDeleteAndMissedColumns.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904071619593_AddLineItemProductOwner.resx">
       <DependentUpon>201904071619593_AddLineItemProductOwner.cs</DependentUpon>

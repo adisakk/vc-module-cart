@@ -145,7 +145,7 @@ namespace VirtoCommerce.CartModule.Data.Services
 
                 var cartIds = query.Select(x => x.Id).Skip(criteria.Skip).Take(criteria.Take).ToArray();
                 var carts = GetByIds(cartIds);
-                retVal.Results = carts.AsQueryable().OrderBySortInfos(GetSortInfos(criteria)).ToList();
+                retVal.Results = carts.AsQueryable().OrderBySortInfos(GetSortInfos(criteria)).ThenBy(x => x.Id).ToList();
 
                 return retVal;
             }
@@ -153,12 +153,12 @@ namespace VirtoCommerce.CartModule.Data.Services
 
         protected virtual IQueryable<ShoppingCartEntity> SortQuery(IQueryable<ShoppingCartEntity> query, ShoppingCartSearchCriteria criteria)
         {
-            return query.OrderBySortInfos(GetSortInfos(criteria));
+            return query.OrderBySortInfos(GetSortInfos(criteria)).ThenBy(x => x.Id);
         }
 
         protected virtual IQueryable<ShoppingCartEntity> GetQuery(ICartRepository repository, ShoppingCartSearchCriteria criteria)
         {
-            var query = GetQueryable(repository);
+            var query = GetQueryable(repository).Where(x => x.IsDeleted == false);
 
             if (!string.IsNullOrEmpty(criteria.Status))
             {
